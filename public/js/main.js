@@ -60,7 +60,7 @@ function fileSelected(obj){
 		}
 		fileup.className = 'label';
 		document.getElementById('upload').className = '';
-		updateInstructions("Click upload");
+		updateInstructions("Send it up");
 	} else {
 		// Or not
 		fname = null;
