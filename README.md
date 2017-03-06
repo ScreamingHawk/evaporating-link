@@ -1,5 +1,7 @@
 # Evaporating.Link
 
+### [Evaporating.Link](http://evaporating.link) is live!
+
 A simple website for temporary file sharing.
 
 ## How to use
