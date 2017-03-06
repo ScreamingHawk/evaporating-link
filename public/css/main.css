@@ -65,10 +65,6 @@ input[type="file"] {
 	align-items: center;
 }
 
-.half-y {
-	height: 50%;
-}
-
 .vert-center {
 	justify-content: center;
 }
