@@ -15,13 +15,16 @@
 	<meta name="google-signin-client_id" content="413881946771-ekjo67p0j61h9amr3nif656nta4si2hi.apps.googleusercontent.com">
 </head>
 <body>
+	<header
 	<div class="fixed">
 		<h1>Evaporating.Link</h1>
 		<p id="instructions">&gt; Enable Javascript</p>
 		<div id="gSignIn"></div>
-		<label id="fileup" for="file" class="hidden">Choose a file</label>
-		<input id="file" type="file">
-		<button id="upload" class="hidden">Upload</button>
+		<div id="filegroup">
+			<label id="fileup" for="file" class="hidden">Choose a file</label>
+			<input id="file" type="file">
+			<button id="upload" class="hidden">&uarr;</button>
+		</div>
 	</div>
 
 	<script src="js/main.js"></script>

@@ -48,15 +48,22 @@ function onGFailure(error) {
 
 
 /* File selected */
+var fname = null;
 function fileSelected(obj){
 	var fileup = document.getElementById('fileup');
 	if (obj.target.value) {
-		fileup.textContent = obj.target.value.split("\\").pop();
+		fname = obj.target.value.split("\\").pop();
+		if (fname.length > 20){
+			fileup.textContent = fname.substr(0, 19) + '...';
+		} else {
+			fileup.textContent = fname;
+		}
 		fileup.className = 'label';
 		document.getElementById('upload').className = '';
 		updateInstructions("Click upload");
 	} else {
 		// Or not
+		fname = null;
 		fileup.textContent = 'Choose a file';
 		fileup.className = '';
 		document.getElementById('upload').className = 'hidden';
@@ -78,7 +85,7 @@ function uploadFile(){
 	// Obtain AWS credentials
 	AWS.config.credentials.get(function(){
 		// Create S3
-		var key = 'evaporating/'+document.getElementById('fileup').textContent;
+		var key = 'evaporating/'+fname;
 		console.log(key);
 		new AWS.S3().upload({
 			Bucket: 'evaporating.link',
