@@ -1,0 +1,33 @@
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Evaporating Link</title>
+	<meta name="description" content="Upload and share temporary files for free">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<link rel="shortcut icon" type="image/png" href="img/favicon.png" />
+	<link rel="shortcut icon" href="img/favicon.png" />
+
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Shadows+Into+Light|Shadows+Into+Light+Two">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<meta name="google-signin-client_id" content="413881946771-ekjo67p0j61h9amr3nif656nta4si2hi.apps.googleusercontent.com">
+</head>
+<body>
+	<div class="fixed vert-center">
+		<h1>Evaporating.Link</h1>
+		<p id="instructions">&gt; Enable Javascript</p>
+	</div>
+	<div class="fixed">
+		<div id="gSignIn"></div>
+		<label id="fileup" for="file" class="hidden">Choose a file</label>
+		<input id="file" type="file">
+		<button id="upload" class="hidden">Upload</button>
+	</div>
+
+	<script src="js/main.js"></script>
+	<script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.7.20.min.js"></script>
+</body>
+</html>
