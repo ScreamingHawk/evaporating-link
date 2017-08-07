@@ -98,7 +98,7 @@ function uploadFile(){
 				updateInstructions('Sorry! Error uploading');
 				console.log(err.message);
 			} else {
-				instructions.innerHTML = '<a href="' + data.Location + '">Linky</a>';
+				instructions.innerHTML = '<a href="download.html?f=' + fname + '">Linky</a>';
 			}
 		});
 	});
