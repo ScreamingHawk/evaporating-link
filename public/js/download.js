@@ -19,7 +19,8 @@ function onLoad(){
 	if (link == null || link == ''){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
 	} else {
-		downLink.href = 'evaporating/' + link;
+		// Bypass CloudFront and access directly
+		downLink.href = 'https://s3-ap-southeast-2.amazonaws.com/evaporating.link/evaporating/' + link;
 		downLink.textContent = "Click to download";
 		downLink.click();
 	}
