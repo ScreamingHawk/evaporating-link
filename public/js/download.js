@@ -20,7 +20,7 @@ function onLoad(){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
 	} else {
 		downLink.href = 'evaporating/' + link;
-		downLink.textContent = "Click here if your download doesn't start automatically";
+		downLink.textContent = "Click to download";
 		downLink.click();
 	}
 }

@@ -96,14 +96,16 @@ input[type="file"] {
 	align-items: center;
 }
 
+object[type="image/svg+xml"] {
+	max-height: 50%;
+	max-width: 50%;
+	margin-top: auto;
+}
+
 .vert-center {
 	justify-content: center;
 }
 
 .hidden {
 	display: none;
-}
-
-.small {
-	font-size: 0.6em;
 }
