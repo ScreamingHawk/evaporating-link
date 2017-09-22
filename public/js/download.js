@@ -1,5 +1,7 @@
+var bucketName = "evaporating.link";
+
 /* Get the query parameter
- * https://stackoverflow.com/a/901144/2027146 
+ * https://stackoverflow.com/a/901144/2027146
  */
 function getParameterByName(name, url) {
     if (!url) url = window.location.href;
@@ -20,7 +22,7 @@ function onLoad(){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
 	} else {
 		// Bypass CloudFront and access directly
-		downLink.href = 'https://s3-ap-southeast-2.amazonaws.com/evaporating.link/evaporating/' + link;
+		downLink.href = 'https://s3-ap-southeast-2.amazonaws.com/' + bucketName + '/evaporating/' + link;
 		downLink.textContent = "Click to download";
 		downLink.click();
 	}

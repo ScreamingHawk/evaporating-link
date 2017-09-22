@@ -1,3 +1,5 @@
+var bucketName = "evaporating.link";
+
 var instructions = document.getElementById('instructions');
 
 /* Update instructions for the user */
@@ -88,7 +90,7 @@ function uploadFile(){
 		var key = 'evaporating/'+fname;
 		console.log(key);
 		new AWS.S3().upload({
-			Bucket: 'evaporating.link',
+			Bucket: bucketName,
 			Key: key,
 			Body: files[0],
 			ACL: 'public-read-write',
