@@ -1,4 +1,4 @@
-var bucketName = "evaporating.link";
+var bucketName = "evaporatinglink";
 
 var instructions = document.getElementById('instructions');
 

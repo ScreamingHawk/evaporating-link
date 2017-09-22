@@ -1,4 +1,4 @@
-var bucketName = "evaporating.link";
+var bucketName = "evaporatinglink";
 
 /* Get the query parameter
  * https://stackoverflow.com/a/901144/2027146
