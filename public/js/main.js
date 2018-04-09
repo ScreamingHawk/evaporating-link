@@ -4,6 +4,8 @@ var instructions = document.getElementById('instructions');
 
 /* Update instructions for the user */
 function updateInstructions(message) {
+	// Clear QR code
+	updateQRCode();
 	instructions.textContent = message;
 }
 
@@ -100,7 +102,11 @@ function uploadFile(){
 				updateInstructions('Sorry! Error uploading');
 				console.log(err.message);
 			} else {
-				instructions.innerHTML = '<a href="download.html?f=' + fname + '">Linky</a>';
+				var getUrl = window.location;
+				var linky = getUrl.protocol + '//' + getUrl.host + getUrl.pathname +
+						'download.html?f=' + encodeURI(fname);
+				instructions.innerHTML = '<a href="' + linky + '">Linky</a>';
+				updateQRCode(linky);
 			}
 		});
 	});

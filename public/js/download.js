@@ -17,6 +17,9 @@ function getParameterByName(name, url) {
 function onLoad(){
 	var downLink = document.getElementById("downLink");
 	downLink.textContent = "> Loading";
+
+	updateQRCode(window.location.href);
+
 	var link = getParameterByName("f");
 	if (link == null || link == ''){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
