@@ -29,8 +29,6 @@ function onLoad(){
 	var downLink = document.getElementById("downLink");
 	downLink.textContent = "> Loading";
 
-	updateQRCode(window.location.href);
-
 	var link = getParameterByName("f");
 	if (link == null || link == ''){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
@@ -38,6 +36,8 @@ function onLoad(){
 		// Bypass CloudFront and access directly
 		var href = 'https://s3-ap-southeast-2.amazonaws.com/' + bucketName + '/evaporating/' + link;
 		if (testFileExists(href)){
+			updateQRCode(window.location.href);
+
 			downLink.href = href;
 			downLink.textContent = "Click to download";
 			downLink.click();
