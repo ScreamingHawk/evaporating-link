@@ -13,6 +13,17 @@ function getParameterByName(name, url) {
     return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
+/**
+ * Test file exists
+ * https://stackoverflow.com/a/26631181/2027146
+ */
+function testFileExists(url) {
+    var http = new XMLHttpRequest();
+    http.open('HEAD', url, false);
+    http.send();
+    return http.status != 404;
+}
+
 /* On load function */
 function onLoad(){
 	var downLink = document.getElementById("downLink");
@@ -25,9 +36,14 @@ function onLoad(){
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
 	} else {
 		// Bypass CloudFront and access directly
-		downLink.href = 'https://s3-ap-southeast-2.amazonaws.com/' + bucketName + '/evaporating/' + link;
-		downLink.textContent = "Click to download";
-		downLink.click();
+		var href = 'https://s3-ap-southeast-2.amazonaws.com/' + bucketName + '/evaporating/' + link;
+		if (testFileExists(href)){
+			downLink.href = href;
+			downLink.textContent = "Click to download";
+			downLink.click();
+		} else {
+			window.location = '/error.html';
+		}
 	}
 }
 onLoad();
