@@ -99,7 +99,14 @@ function uploadFile(){
 			Body: files[0],
 			ACL: 'public-read-write',
 			StorageClass: 'REDUCED_REDUNDANCY'
-		}, function(err, data){
+		}).on('httpUploadProgress', function(event){
+			if (event && event.total && event.loaded){
+				console.log("Total: "+event.total);
+				console.log("Loaded: "+event.loaded);
+				var loaded = Math.round(event.loaded / event.total * 100);
+				updateInstructions('Loading... ' + loaded + '%');
+			}
+		}).send(function(err, data){
 			if (err){
 				updateInstructions('Sorry! Error uploading');
 				console.log(err.message);
