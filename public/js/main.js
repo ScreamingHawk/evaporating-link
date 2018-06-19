@@ -92,6 +92,8 @@ function uploadFile(){
 		var key = 'evaporating/'+fname;
 		console.log(key);
 		new AWS.S3().upload({
+			partSize: 10 * 1024 * 1024,
+			queueSize: 4,
 			Bucket: bucketName,
 			Key: key,
 			Body: files[0],
