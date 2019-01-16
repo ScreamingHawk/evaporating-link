@@ -22,3 +22,8 @@ Indexing uploaded files have been blocked so they won't appear in search engines
 [Michael Standen](https://michael.standen.link)
 
 This software is provided under the [MIT License](https://tldrlegal.com/license/mit-license) so it's free to use so long as you give me credit.
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/ScreamingHawk/evaporating-link/badge.svg?style=beer-square)](https://beerpay.io/ScreamingHawk/evaporating-link)  [![Beerpay](https://beerpay.io/ScreamingHawk/evaporating-link/make-wish.svg?style=flat-square)](https://beerpay.io/ScreamingHawk/evaporating-link?focus=wish)
