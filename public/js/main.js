@@ -53,11 +53,12 @@ function onGFailure(error) {
 
 /* File selected */
 var fname = null;
-function fileSelected(obj){
+
+function fileSelected(obj) {
 	var fileup = document.getElementById('fileup');
 	if (obj.target.value) {
 		fname = obj.target.value.split("\\").pop();
-		if (fname.length > 20){
+		if (fname.length > 20) {
 			fileup.textContent = fname.substr(0, 19) + '...';
 		} else {
 			fileup.textContent = fname;
@@ -77,7 +78,7 @@ function fileSelected(obj){
 document.getElementById('file').onchange = fileSelected
 
 /* User click upload */
-function uploadFile(){
+function uploadFile() {
 	var files = document.getElementById('file').files;
 	if (!files.length) {
 		updateInstructions('Select a file');
@@ -87,9 +88,9 @@ function uploadFile(){
 	updateInstructions('Please wait...');
 	document.getElementById('upload').className = 'hidden';
 	// Obtain AWS credentials
-	AWS.config.credentials.get(function(){
+	AWS.config.credentials.get(function () {
 		// Create S3
-		var key = 'evaporating/'+fname;
+		var key = 'evaporating/' + fname;
 		console.log(key);
 		new AWS.S3().upload({
 			partSize: 10 * 1024 * 1024,
@@ -99,21 +100,21 @@ function uploadFile(){
 			Body: files[0],
 			ACL: 'public-read-write',
 			StorageClass: 'REDUCED_REDUNDANCY'
-		}).on('httpUploadProgress', function(event){
-			if (event && event.total && event.loaded){
-				console.log("Total: "+event.total);
-				console.log("Loaded: "+event.loaded);
+		}).on('httpUploadProgress', function (event) {
+			if (event && event.total && event.loaded) {
+				console.log("Total: " + event.total);
+				console.log("Loaded: " + event.loaded);
 				var loaded = Math.round(event.loaded / event.total * 100);
 				updateInstructions('Loading... ' + loaded + '%');
 			}
-		}).send(function(err, data){
-			if (err){
+		}).send(function (err, data) {
+			if (err) {
 				updateInstructions('Sorry! Error uploading');
 				console.log(err.message);
 			} else {
 				var getUrl = window.location;
 				var linky = getUrl.protocol + '//' + getUrl.host + getUrl.pathname +
-						'download.html?f=' + encodeURI(fname);
+					'download.html?f=' + encodeURI(fname);
 				instructions.innerHTML = '<a href="' + linky + '">Linky</a>';
 				updateQRCode(linky);
 			}
@@ -123,7 +124,7 @@ function uploadFile(){
 document.getElementById('upload').onclick = uploadFile;
 
 /* On load function */
-function onLoad(){
+function onLoad() {
 	updateInstructions("Sign in");
 }
 onLoad();

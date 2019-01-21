@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
 	margin: 0;
 	padding: 0;
 	height: 99%;
@@ -18,7 +19,12 @@ header {
 	width: 100%;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	font-family: 'Shadows Into Light', cursive, sans-serif;
 	margin-bottom: 0;
 }
@@ -27,13 +33,16 @@ h1 {
 	font-size: 10vw;
 	margin-top: 5vh;
 }
+
 h2 {
 	font-size: 8vw;
 	margin-top: 5vh;
 }
+
 p {
 	margin: 0;
 }
+
 p.margin {
 	margin-bottom: 5vh;
 }
@@ -42,9 +51,10 @@ p.margin {
 	margin: 1em 0 0 0;
 }
 
-#filegroup{
+#filegroup {
 	margin: 1em 0 0 0;
 }
+
 button,
 #fileup {
 	cursor: pointer;
@@ -58,9 +68,10 @@ button,
 	max-width: 70%;
 	overflow: hidden;
 }
+
 button:hover,
 #fileup:hover {
-	box-shadow: 0 0 1.1em rgba(0,0,0,0.24);
+	box-shadow: 0 0 1.1em rgba(0, 0, 0, 0.24);
 }
 
 input[type="file"] {

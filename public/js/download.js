@@ -4,13 +4,13 @@ var bucketName = "evaporating.link";
  * https://stackoverflow.com/a/901144/2027146
  */
 function getParameterByName(name, url) {
-    if (!url) url = window.location.href;
-    name = name.replace(/[\[\]]/g, "\\$&");
-    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
-        results = regex.exec(url);
-    if (!results) return null;
-    if (!results[2]) return '';
-    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	if (!url) url = window.location.href;
+	name = name.replace(/[\[\]]/g, "\\$&");
+	var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		results = regex.exec(url);
+	if (!results) return null;
+	if (!results[2]) return '';
+	return decodeURIComponent(results[2].replace(/\+/g, " "));
 }
 
 /**
@@ -18,24 +18,24 @@ function getParameterByName(name, url) {
  * https://stackoverflow.com/a/26631181/2027146
  */
 function testFileExists(url) {
-    var http = new XMLHttpRequest();
-    http.open('HEAD', url, false);
-    http.send();
-    return http.status != 404;
+	var http = new XMLHttpRequest();
+	http.open('HEAD', url, false);
+	http.send();
+	return http.status != 404;
 }
 
 /* On load function */
-function onLoad(){
+function onLoad() {
 	var downLink = document.getElementById("downLink");
 	downLink.textContent = "> Loading";
 
 	var link = getParameterByName("f");
-	if (link == null || link == ''){
+	if (link == null || link == '') {
 		document.getElementById("downHolder").innerHTML = "Unable to source file";
 	} else {
 		// Bypass CloudFront and access directly
 		var href = 'https://s3-ap-southeast-2.amazonaws.com/' + bucketName + '/evaporating/' + link;
-		if (testFileExists(href)){
+		if (testFileExists(href)) {
 			updateQRCode(window.location.href);
 
 			downLink.href = href;
