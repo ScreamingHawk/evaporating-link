@@ -1,6 +1,6 @@
 # Evaporating.Link
 
-### [Evaporating.Link](http://evaporating.link) is live!
+### [Evaporating.Link](https://evaporating.link) is live!
 
 A simple website for temporary file sharing.
 
